@@ -177,7 +177,14 @@ name = "primeish"
 version = "0.1.0"
 dependencies = [
  "clap",
+ "primes",
 ]
+
+[[package]]
+name = "primes"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "68a61082d8bceecd71a3870e9162002bb75f7ba9c7aa8b76227e887782fef9c8"
 
 [[package]]
 name = "proc-macro2"
