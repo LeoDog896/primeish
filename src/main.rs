@@ -36,17 +36,17 @@ enum Commands {
     /// List the first N prime numbers
     List {
         /// The number of primes to list
-        n: u64,
+        n: usize,
     },
 
     /// Get the nth prime number
     Nth {
         /// The index of the prime number to get
-        n: u64,
+        n: usize,
 
         /// The amount of primes to list after the nth prime
         #[arg(short, long, default_value = "1")]
-        amount: u64,
+        amount: usize,
     },
 
     /// Get the next prime number after a given number
@@ -103,11 +103,20 @@ fn main() {
         }
         Commands::Factors { numbers } => {
             for n in numbers {
-                println!("{}: {}", n, prime_set.prime_factors(*n).iter().map(|x| x.to_string()).collect::<Vec<_>>().join(", "));
+                println!(
+                    "{}: {}",
+                    n,
+                    prime_set
+                        .prime_factors(*n)
+                        .iter()
+                        .map(ToString::to_string)
+                        .collect::<Vec<_>>()
+                        .join(", ")
+                );
             }
         }
         Commands::List { n } => {
-            for (ix, n) in prime_set.iter().enumerate().take(*n as usize) {
+            for (ix, n) in prime_set.iter().enumerate().take(*n) {
                 println!("{}: {}", ix + 1, n);
             }
         }
@@ -115,8 +124,8 @@ fn main() {
             for (ix, n) in prime_set
                 .iter()
                 .enumerate()
-                .skip((*n - 1) as usize)
-                .take(*amount as usize)
+                .skip(*n - 1)
+                .take(*amount)
             {
                 println!("{}: {}", ix + 1, n);
             }
