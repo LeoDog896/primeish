@@ -1,9 +1,13 @@
 [package]
 name = "primeish"
 version = "0.1.0"
+description = "A CLI containing various prime number utilities."
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "Apache-2.0"
+license-file = "LICENSE"
+documentation = "https://github.com/LeoDog896/primeish#readme"
+homepage = "https://github.com/LeoDog896/primeish#readme"
+repository = "https://github.com/LeoDog896/primeish"
 
 [dependencies]
 clap = { version = "4.3.11", features = ["derive"] }

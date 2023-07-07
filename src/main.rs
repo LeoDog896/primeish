@@ -1,7 +1,7 @@
 use clap::{Parser, Subcommand, ValueEnum};
 use primes::{is_prime, PrimeSet, Sieve};
 
-/// Various prime number related functions
+/// Various prime number related utilities in a single tool.
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
 struct Cli {
